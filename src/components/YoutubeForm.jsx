@@ -40,8 +40,6 @@ const YoutubeForm = () => {
     },
   });
 
-  console.log(formik);
-
   return (
     <div className="p-12">
       <div>
@@ -54,11 +52,9 @@ const YoutubeForm = () => {
               className="border"
               type="text"
               id="name"
-              name="name"
-              onChange={formik.handleChange}
-              value={formik.values.name}
+              {...formik.getFieldProps("name")}
             />
-            {formik.errors.name ? (
+            {formik.errors.name && formik.touched.name ? (
               <p className="text-red-400">{formik.errors.name}</p>
             ) : null}
           </div>
@@ -70,11 +66,9 @@ const YoutubeForm = () => {
               className="border"
               type="email"
               id="email"
-              name="email"
-              onChange={formik.handleChange}
-              value={formik.values.email}
+              {...formik.getFieldProps("email")}
             />
-            {formik.errors.email ? (
+            {formik.errors.email && formik.touched.email ? (
               <p className="text-red-400">{formik.errors.email}</p>
             ) : null}
           </div>
@@ -86,11 +80,9 @@ const YoutubeForm = () => {
               className="border"
               type="text"
               id="channel"
-              name="channel"
-              onChange={formik.handleChange}
-              values={formik.values.channel}
+              {...formik.getFieldProps("channel")}
             />
-            {formik.errors.channel ? (
+            {formik.errors.channel && formik.touched.channel ? (
               <p className="text-red-400">{formik.errors.channel}</p>
             ) : null}
           </div>
