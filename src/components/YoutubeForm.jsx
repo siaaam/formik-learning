@@ -9,7 +9,12 @@ const initialValues = {
   channel: "",
   comments: "",
   address: "",
+  social: {
+    facebook: "",
+    twitter: "",
+  },
 };
+
 const validationSchema = Yup.object({
   name: Yup.string()
     .max(15, "cannot go higher than 15 character")
@@ -19,6 +24,7 @@ const validationSchema = Yup.object({
   comments: Yup.string().required("Required"),
   address: Yup.string().required("required"),
 });
+
 const onSubmit = (values) => {
   console.log(values);
 };
@@ -31,7 +37,7 @@ const YoutubeForm = () => {
       onSubmit={onSubmit}
     >
       <div className="p-12">
-        <div className="w-[300px] mx-auto">
+        <div className="w-[500px] mx-auto">
           <Form>
             <div className="mb-3">
               <label className="block" htmlFor="name">
@@ -108,8 +114,29 @@ const YoutubeForm = () => {
                 }}
               </Field>
             </div>
+
+            <div className="mb-3">
+              <label htmlFor="facebook">Facebook Profile</label>
+              <Field
+                className="border border-green-500 w-full focus:outline-none px-3 py-3 rounded-md shadow-md"
+                type="text"
+                id="facebook"
+                name="social.facebook"
+              />
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="twitter">Twitter Profile</label>
+              <Field
+                className="border border-green-500 w-full focus:outline-none px-3 py-3 rounded-md shadow-md"
+                type="text"
+                id="twitter"
+                name="social.twitter"
+              />
+            </div>
+
             <button
-              className="border px-4 py-2 bg-gray-400 hover:bg-gray-500 text-white hover:text-slate-100 rounded-sm w-full"
+              className="rounded-md border px-4 py-2 bg-gray-400 hover:bg-gray-500 text-white hover:text-slate-100 w-full"
               type="submit"
             >
               Submit
